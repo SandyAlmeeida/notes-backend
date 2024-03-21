@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Note = require('../models/note');
+const NoteTag = require('../models/notetag');
 
 router.get('/', async (req, res) => {
   try {
@@ -17,7 +18,12 @@ router.post('/', async (req, res) => {
   try {
     const newNote = await Note.create({ title, description });
     if (tags && tags.length > 0) {
-      await newNote.setTags(tags);
+      const createNoteTag = [];
+      tags.forEach(tagId => {
+        const response = { noteId: newNote.id, tagId };
+        createNoteTag.push(response);
+      });
+      await NoteTag.bulkCreate(createNoteTag);
     }
     res.status(201).json(newNote);
   } catch (err) {
