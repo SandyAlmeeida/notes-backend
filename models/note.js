@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const NoteTag = require('./notetag');
 
 const Note = sequelize.define('Note', {
   title: {
@@ -14,6 +15,7 @@ const Note = sequelize.define('Note', {
 
 Note.associate = models => {
   Note.belongsToMany(models.Tag, { through: 'NoteTag' });
+  console.log(Note);
 };
 
 module.exports = Note;
