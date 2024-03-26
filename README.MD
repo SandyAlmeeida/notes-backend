@@ -58,8 +58,10 @@ npm install
 
 ### 3. Configuração do Banco de Dados:
 
-- Crie um banco de dados MySQL com o nome `nome_do_banco`.
-- Configure as credenciais do banco de dados no arquivo `config/db.js`.
+- Crie um banco de dados MySQL com o nome `database_development` ou rode o seguinte comando:
+```bash
+npx sequelize-cli db:create
+```
 
 ### 4. Executar Migrações:
 
