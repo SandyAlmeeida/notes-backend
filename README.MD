@@ -30,7 +30,10 @@ Este é o projeto backend de um sistema de notas que inclui uma relação de mui
   sudo mysql
   ```
   ```bash
-  CREATE USER 'username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+  CREATE USER 'local'@'localhost' IDENTIFIED WITH mysql_native_password BY 'local';
+  ```
+  ```bash
+  GRANT ALL PRIVILEGES ON *.* TO 'local'@'localhost';
   ```
   ```bash
   FLUSH PRIVILEGES;
